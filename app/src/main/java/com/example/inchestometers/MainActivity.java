@@ -42,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
             outputText.setText("");
 
             if (inchesText.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Inches must be filled out", Toast.LENGTH_LONG).show();
+                final String emptyInchesText = "Inches must be filled out";
+                Toast.makeText(this, emptyInchesText, Toast.LENGTH_LONG)
+                        .show();
             } else {
                 double inches = Double.parseDouble(inchesText.getText().toString());
                 double meters = convertInchesToMeters(inches);
@@ -58,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
     private void displayOutput(double meters) {
         DecimalFormat myDecimalFormatter = new DecimalFormat("0.00");
         String meterTextResult = myDecimalFormatter.format(meters);
-        String fullResultString = inchesText.getText().toString() + " inches is " + meterTextResult + " meters";
+        String fullResultString = inchesText.getText().toString() + " inches is " +
+                meterTextResult + " meters";
         outputText.setText(fullResultString);
     }
 }
